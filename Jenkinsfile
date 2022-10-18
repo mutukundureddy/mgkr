@@ -18,8 +18,7 @@ node('built-in')
     sh 'java -jar /home/ubuntu/.jenkins/workspace/scriptedpipeline/testing.jar'
     }
     stage('continuous delivery')
-    {
-      input message: 'approved for dm', submitter: 'hari'  
+    {  
     deploy adapters: [tomcat9(credentialsId: '76c20b58-9289-4aa8-9da8-93a3133cd15f', path: '', url: 'http://172.31.12.196:8080')], contextPath: 'prodapp', war: '**/*.war'
     }
 }
